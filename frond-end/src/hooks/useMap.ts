@@ -41,14 +41,16 @@ export const useMap = (
         markersRef.current.forEach((marker) => marker.remove());
         markersRef.current = [];
 
+        console.log(data);
+
         // Add markers only if data is available
         if (data.length > 0) {
-            data.forEach(({ lat, lon, temp }) => {
+            data.forEach(({ city, lat, lon, temp }) => {
                 const popup = new mapboxgl.Popup({
                     closeButton: false,
                     anchor: "left",
                 }).setHTML(
-                    `<div class="popup">Temp: ${unit == 1 ? temp : celciusToFahrenheit(temp, unit)} ${unit == 1 ? "C" : "F"
+                    `<div class="popup">${city}: ${unit == 1 ? temp : celciusToFahrenheit(temp, unit)} ${unit == 1 ? "C" : "F"
                     }°</div>`
                 );
 

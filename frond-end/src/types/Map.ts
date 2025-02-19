@@ -1,4 +1,5 @@
 export type LocationData = {
+  city: string;
   lat: number;
   lon: number;
   temp: number;
