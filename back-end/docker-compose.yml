@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    env_file:
+      - .env   # Load environment variables from .env file
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run dev
